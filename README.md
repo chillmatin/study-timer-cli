@@ -2,8 +2,6 @@
 
 Simple terminal tool for setting up study sessions. Project is under development now.
 
-
-
 # Todo
 
 - [x] Which language is to be used should be determined
