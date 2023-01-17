@@ -62,10 +62,10 @@ void set_break_time_menu()
                         cout << "Invalid pomodoro time. Pomodoro session can be minimum 1 and maximum 180 minutes.\n";
         }
         break_time_minutes = input;
-
 }
 
-void start_timer(){
+void start_timer()
+{
         int pomodoros_done = 0;
         int total_pomodoro_minutes = 0;
         cout << "\033c";
@@ -73,10 +73,13 @@ void start_timer(){
         cout << "Pomodoros done:\t" << pomodoros_done << endl;
         cout << "Total focus time:\t" << total_pomodoro_minutes << endl;
 
-        
+        bool timer_mode = 1; // 1 => focus time
+                             // 0 => not focus time
 
-
-
+        while (1)
+        {
+                
+        }
 }
 
 void menuPrompt()
@@ -108,30 +111,31 @@ void menuPrompt()
         }
 }
 
-bool isNumber(const string& s)
+bool isNumber(const string &s)
 {
-    string::const_iterator it = s.begin();
-    while (it != s.end() && isdigit(*it)) ++it;
-    return !s.empty() && it == s.end();
+        string::const_iterator it = s.begin();
+        while (it != s.end() && isdigit(*it))
+                ++it;
+        return !s.empty() && it == s.end();
 }
 
-
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
-        bool valid_parameters = argc > 1 && isNumber(argv[1]) && isNumber(argv[2]) && stoi(argv[1]) <= 180 && \
-                                stoi(argv[1]) > 0 && stoi(argv[2]) <= 180 && stoi(argv[2]) > 0;;
-        if(valid_parameters){
+        bool valid_parameters = argc > 1 && isNumber(argv[1]) && isNumber(argv[2]) && stoi(argv[1]) <= 180 &&
+                                stoi(argv[1]) > 0 && stoi(argv[2]) <= 180 && stoi(argv[2]) > 0;
+        ;
+        if (valid_parameters)
+        {
                 pomodoro_time_minutes = stoi(argv[1]);
                 break_time_minutes = stoi(argv[2]);
         }
-        
+
         cout << "Have fruitful sessions!\n";
 
         while (1)
         {
                 menuPrompt();
                 // TODO: find a way to clear and restart ui that supports all operating systems (linux, windows, macos)
-
         }
 
         return 0;
