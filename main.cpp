@@ -70,6 +70,10 @@ void start_timer(){
         int total_pomodoro_minutes = 0;
         cout << "\033c";
 
+        cout << "Pomodoros done:\t" << pomodoros_done << endl;
+        cout << "Total focus time:\t" << total_pomodoro_minutes << endl;
+
+        
 
 
 
