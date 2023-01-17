@@ -75,10 +75,12 @@ void start_timer()
 
         bool timer_mode = 1; // 1 => focus time
                              // 0 => not focus time
+        int timer = 1;
 
+        // TODO: make sure this part is kind of independent from the computer being open whole time.
         while (1)
         {
-                
+
         }
 }
 
@@ -135,7 +137,6 @@ int main(int argc, char *argv[])
         while (1)
         {
                 menuPrompt();
-                // TODO: find a way to clear and restart ui that supports all operating systems (linux, windows, macos)
         }
 
         return 0;
