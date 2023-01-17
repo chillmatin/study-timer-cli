@@ -65,9 +65,19 @@ void set_break_time_menu()
 
 }
 
+void start_timer(){
+        int pomodoros_done = 0;
+        int total_pomodoro_minutes = 0;
+        cout << "\033c";
+
+
+
+
+}
+
 void menuPrompt()
 {
-        cout << "\033c" << endl;
+        cout << "\033c";
         printMenu();
 
         int choice;
