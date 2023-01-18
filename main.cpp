@@ -107,6 +107,8 @@ void menuPrompt()
                 // TODO: timer should be more like alarm but only indicates time left until alarm
                 // start timer
 
+                start_timer();
+
                 break;
         default:
                 cout << "Invalid choice. Try again.\n";
