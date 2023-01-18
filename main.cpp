@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <chrono>
+#include <thread>
+
 using namespace std;
 
 /*
@@ -64,23 +67,57 @@ void set_break_time_menu()
         break_time_minutes = input;
 }
 
+int toggle(int input){
+        return input == 0 ? 1 : 0;
+}
+
 void start_timer()
 {
         int pomodoros_done = 0;
         int total_pomodoro_minutes = 0;
         cout << "\033c";
 
-        cout << "Pomodoros done:\t" << pomodoros_done << endl;
-        cout << "Total focus time:\t" << total_pomodoro_minutes << endl;
+        cout << "Pomodoros done:\t\t" << pomodoros_done << endl;
+        cout << "Total focus time:\t" << total_pomodoro_minutes << endl << endl;
+        cout << "Focusing..." << endl;
+        cout << "[                          ]";
 
-        bool timer_mode = 1; // 1 => focus time
-                             // 0 => not focus time
-        int timer = 1;
+        int timer_mode = 1;     // 0 => focus time
+                                // 1 => not focus time
 
-        // TODO: make sure this part is kind of independent from the computer being open whole time.
+        int timers[] = {pomodoro_time_minutes, break_time_minutes};
+        int timer;
+        int counter = 0;
+
+
+        /*
+        [ ] while pomodoro iterations
+                [ ] decide counter
+                [ ] update counter type
+                [ ] count up till counter
+                [ ] update percentage every minute
+
+        */
         while (1)
         {
+                timer_mode = toggle(timer_mode);
+                timer = timers[timer_mode];
 
+                switch (timer_mode){
+                        case 0:
+                                
+                                break;
+
+                        case 1:
+                                break;
+                }
+                
+                while (1){
+                        this_thread::sleep_for(chrono::minutes(1));
+                        counter++;
+
+
+                }
         }
 }
 
