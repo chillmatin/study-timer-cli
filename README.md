@@ -8,6 +8,18 @@ This is a simple pomodoro timer that allows you to set the duration of your focu
 - Timer menu that shows the progress of focus time, number of pomodoros completed, and total focus time in minutes
 - Advanced menu to customize the timer
 
+# Screenshots
+## Main menu
+
+### Timer menu while work time
+![image](https://user-images.githubusercontent.com/73022312/213349267-cd474318-e9c6-42b5-8618-798d8c50ba36.png)
+
+### Timer menu while break
+![image](https://user-images.githubusercontent.com/73022312/213349198-2d7916be-047b-40b1-a192-baa288b44059.png)
+
+### Advanced menu
+[in progress]
+
 # TODO
 
 - [ ] Customizable ding sound
