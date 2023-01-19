@@ -9,7 +9,7 @@ This is a simple pomodoro timer that allows you to set the duration of your focu
 - Advanced menu to customize the timer
 
 # Screenshots
-## Main menu
+### Main menu
 ![image](https://user-images.githubusercontent.com/73022312/213349345-afac9179-0dea-4676-81bb-1df36258a991.png)
 
 ### Timer menu while work time
