@@ -78,6 +78,21 @@ void printCharNTimes(char c, int n) {
     }
 }
 
+void print_timer_menu(int pomodoros_done, int total_focus_time, double percentile, int timer_mode, int time_left){
+        cout << "Pomodoros done:\t\t" << pomodoros_done << endl;
+        cout << "Total focus time:\t" << total_focus_time << " minutes" << endl << endl;
+
+        if (timer_mode == 0) cout << "Focusing..." << endl;
+        else cout << "Break!" << endl;
+
+        int bar_count = percentile * 26;
+        cout << "[";
+        printCharNTimes('#', 26 - bar_count);
+        printCharNTimes(' ', bar_count);
+        cout << "]\t" << time_left << " minutes left" << endl;
+        
+}
+
 void start_timer()
 {
         int pomodoros_done = 0;
@@ -85,7 +100,7 @@ void start_timer()
         cout << "\033c";
 
         cout << "Pomodoros done:\t\t" << pomodoros_done << endl;
-        cout << "Total focus time:\t" << total_pomodoro_minutes << endl
+        cout << "Total focus time:\t" << total_pomodoro_minutes << " minutes" << endl
              << endl;
         cout << "Focusing..." << endl;
         cout << "[                          ]" << endl;
@@ -113,32 +128,25 @@ void start_timer()
                 timer_mode = toggle(timer_mode);
                 timer = timers[timer_mode];
 
-                while (1)
+                while (counter < timer)
                 {
                         //this_thread::sleep_for(chrono::minutes(1));
-                        this_thread::sleep_for(chrono::seconds(3));
+                        this_thread::sleep_for(chrono::seconds(1));
+                        cout << "\033c"; 
 
                         counter++;
                         time_left = timer - counter;
                         if (timer_mode == 0) total_pomodoro_minutes++;
-                        cout << "\033[4A"
-                             << "\033[2K"
-                             << "Total focus time: " << total_pomodoro_minutes << " minutes left" << endl
-                             << "\033[3B"
-                             << "\033[2K";
 
-                        percentile = time_left / timer;
-                        bar_count = percentile * 26;
-                        cout << "[";
-                        printCharNTimes('#', bar_count);
-                        printCharNTimes(' ', 26 - bar_count);
-                        cout << "]";
+                        percentile = (double) time_left / timer;
 
+                        print_timer_menu(pomodoros_done, total_pomodoro_minutes, percentile, timer_mode, time_left);
 
-                        
-                        
+                                               
                 }
                 counter = 0;
+
+                if (timer_mode == 0) pomodoros_done++;
         }
 }
 
