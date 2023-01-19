@@ -80,7 +80,7 @@ void start_timer()
         cout << "Pomodoros done:\t\t" << pomodoros_done << endl;
         cout << "Total focus time:\t" << total_pomodoro_minutes << endl << endl;
         cout << "Focusing..." << endl;
-        cout << "[                          ]";
+        cout << "[                          ]" << endl;
 
         int timer_mode = 1;     // 0 => focus time
                                 // 1 => not focus time
@@ -88,12 +88,12 @@ void start_timer()
         int timers[] = {pomodoro_time_minutes, break_time_minutes};
         int timer;
         int counter = 0;
-
+        int time_left = 0;
 
         /*
         [ ] while pomodoro iterations
-                [ ] decide counter
-                [ ] update counter type
+                [X] decide counter
+                [X] update counter type
                 [ ] count up till counter
                 [ ] update percentage every minute
 
@@ -103,21 +103,17 @@ void start_timer()
                 timer_mode = toggle(timer_mode);
                 timer = timers[timer_mode];
 
-                switch (timer_mode){
-                        case 0:
-                                
-                                break;
-
-                        case 1:
-                                break;
-                }
                 
                 while (1){
                         this_thread::sleep_for(chrono::minutes(1));
                         counter++;
+                        time_left = timer - counter;
+                        cout << "\033[2A" << "\033[2K" << "This is the new text for the second line" << endl;
 
 
                 }
+
+                counter = 0;
         }
 }
 
