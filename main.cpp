@@ -82,8 +82,8 @@ void print_timer_menu(int pomodoros_done, int total_focus_time, double percentil
         cout << "Pomodoros done:\t\t" << pomodoros_done << endl;
         cout << "Total focus time:\t" << total_focus_time << " minutes" << endl << endl;
 
-        if (timer_mode == 0) cout << "Focusing..." << endl;
-        else cout << "Break!" << endl;
+        if (timer_mode == 0) cout << "\033[1;32mFocusing...\033[0m" << endl;
+        else cout << "\033[1;31mBreak!\033[0m" << endl;
 
         int bar_count = percentile * 26;
         cout << "[";
@@ -102,7 +102,7 @@ void start_timer()
         cout << "Pomodoros done:\t\t" << pomodoros_done << endl;
         cout << "Total focus time:\t" << total_pomodoro_minutes << " minutes" << endl
              << endl;
-        cout << "Focusing..." << endl;
+        cout << "\033[1;32mFocusing...\033[0m"
         cout << "[                          ]" << endl;
 
         int timer_mode = 1; // 0 => focus time
