@@ -3,6 +3,7 @@
 #include <sstream>
 #include <chrono>
 #include <thread>
+#include <cstdlib>
 
 using namespace std;
 
@@ -115,14 +116,7 @@ void start_timer()
         double percentile;
         int bar_count;
 
-        /*
-        [ ] while pomodoro iterations
-                [X] decide counter
-                [X] update counter type
-                [ ] count up till counter
-                [ ] update percentage every minute
 
-        */
         while (1)
         {
                 timer_mode = toggle(timer_mode);
@@ -133,7 +127,6 @@ void start_timer()
                         //this_thread::sleep_for(chrono::minutes(1));
                         this_thread::sleep_for(chrono::seconds(1));
                         cout << "\033c"; 
-
                         counter++;
                         time_left = timer - counter;
                         if (timer_mode == 0) total_pomodoro_minutes++;
@@ -141,11 +134,10 @@ void start_timer()
                         percentile = (double) time_left / timer;
 
                         print_timer_menu(pomodoros_done, total_pomodoro_minutes, percentile, timer_mode, time_left);
-
                                                
                 }
                 counter = 0;
-
+                system("aplay -q ding.wav");
                 if (timer_mode == 0) pomodoros_done++;
         }
 }
