@@ -102,7 +102,7 @@ void start_timer()
         cout << "Pomodoros done:\t\t" << pomodoros_done << endl;
         cout << "Total focus time:\t" << total_pomodoro_minutes << " minutes" << endl
              << endl;
-        cout << "\033[1;32mFocusing...\033[0m"
+        cout << "\033[1;32mFocusing...\033[0m"<< endl;
         cout << "[                          ]" << endl;
 
         int timer_mode = 1; // 0 => focus time
