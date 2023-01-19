@@ -24,7 +24,6 @@ This is a simple pomodoro timer that allows you to set the duration of your focu
 # TODO
 
 - [ ] Customizable ding sound
-- [ ] Persistent configuration
 
 # Usage
 
