@@ -72,6 +72,12 @@ int toggle(int input)
         return input == 0 ? 1 : 0;
 }
 
+void printCharNTimes(char c, int n) {
+    for (int i = 0; i < n; i++) {
+        cout << c;
+    }
+}
+
 void start_timer()
 {
         int pomodoros_done = 0;
@@ -91,6 +97,8 @@ void start_timer()
         int timer;
         int counter = 0;
         int time_left = 0;
+        double percentile;
+        int bar_count;
 
         /*
         [ ] while pomodoro iterations
@@ -107,15 +115,28 @@ void start_timer()
 
                 while (1)
                 {
-                        this_thread::sleep_for(chrono::minutes(1));
+                        //this_thread::sleep_for(chrono::minutes(1));
+                        this_thread::sleep_for(chrono::seconds(3));
+
                         counter++;
                         time_left = timer - counter;
-                        total_pomodoro_minutes++;
+                        if (timer_mode == 0) total_pomodoro_minutes++;
                         cout << "\033[4A"
-                             << "\033[4K"
+                             << "\033[2K"
                              << "Total focus time: " << total_pomodoro_minutes << " minutes left" << endl
                              << "\033[3B"
-                             << "\033[3K";
+                             << "\033[2K";
+
+                        percentile = time_left / timer;
+                        bar_count = percentile * 26;
+                        cout << "[";
+                        printCharNTimes('#', bar_count);
+                        printCharNTimes(' ', 26 - bar_count);
+                        cout << "]";
+
+
+                        
+                        
                 }
                 counter = 0;
         }
