@@ -35,7 +35,8 @@ This is a simple pomodoro timer that allows you to set the duration of your focu
 # Requirements
 
 - C++11
-- iostream, string, sstream, chrono, thread and cstdlib libraries
+- `iostream`, `string`, `sstream`, `chrono`, `thread` and `cstdlib` libraries
+- `aplay` 
 
 # Note
 
