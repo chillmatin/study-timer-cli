@@ -182,7 +182,7 @@ void set_notification_sound()
                 {
                         cout << i << ". " << sfx_vector.at(i-1) << endl;
                 }
-                cout << "0 to leave to main menu\n\n";
+                cout << "\n0 to leave to main menu\n";
                 cout << "Input: ";
                 int choice;
                 cin >> choice;
