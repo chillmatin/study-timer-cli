@@ -8,17 +8,10 @@
 using namespace std;
 
 /*
-Wishing you fruitful sessions!
+TODO:
 
-Menu:
-
-1. Set pomodoro time (current time: 25 mins)
-2. Set break time    (current time: 5 mins)
-3. Advanced
-
-4. start timer
-
-Input:
+- [ ] customizable ding sound
+- [ ] persistent configuration
 
 */
 
