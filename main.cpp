@@ -67,7 +67,8 @@ void set_break_time_menu()
         break_time_minutes = input;
 }
 
-int toggle(int input){
+int toggle(int input)
+{
         return input == 0 ? 1 : 0;
 }
 
@@ -78,12 +79,13 @@ void start_timer()
         cout << "\033c";
 
         cout << "Pomodoros done:\t\t" << pomodoros_done << endl;
-        cout << "Total focus time:\t" << total_pomodoro_minutes << endl << endl;
+        cout << "Total focus time:\t" << total_pomodoro_minutes << endl
+             << endl;
         cout << "Focusing..." << endl;
         cout << "[                          ]" << endl;
 
-        int timer_mode = 1;     // 0 => focus time
-                                // 1 => not focus time
+        int timer_mode = 1; // 0 => focus time
+                            // 1 => not focus time
 
         int timers[] = {pomodoro_time_minutes, break_time_minutes};
         int timer;
@@ -103,16 +105,18 @@ void start_timer()
                 timer_mode = toggle(timer_mode);
                 timer = timers[timer_mode];
 
-                
-                while (1){
+                while (1)
+                {
                         this_thread::sleep_for(chrono::minutes(1));
                         counter++;
                         time_left = timer - counter;
-                        cout << "\033[2A" << "\033[2K" << "This is the new text for the second line" << endl;
-
-
+                        total_pomodoro_minutes++;
+                        cout << "\033[4A"
+                             << "\033[4K"
+                             << "Total focus time: " << total_pomodoro_minutes << " minutes left" << endl
+                             << "\033[3B"
+                             << "\033[3K";
                 }
-
                 counter = 0;
         }
 }
