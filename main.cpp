@@ -12,7 +12,7 @@ using namespace std;
 /*
 TODO:
 
-- [ ] customizable ding sound
+- [X] customizable ding sound
 */
 
 int pomodoro_time_minutes = 25;
@@ -122,8 +122,8 @@ void start_timer()
 
                 while (counter < timer)
                 {
-                        // this_thread::sleep_for(chrono::minutes(1));
-                        this_thread::sleep_for(chrono::seconds(1));
+                        this_thread::sleep_for(chrono::minutes(1));
+                        // this_thread::sleep_for(chrono::seconds(1));
                         cout << "\033c";
                         counter++;
                         time_left = timer - counter;
